@@ -1,21 +1,22 @@
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
-export default function AppLayout({ children }) {
-  return (
-    <SafeAreaView style={styles.safe}>
-      <View style={styles.container}>{children}</View>
-    </SafeAreaView>
-  );
+// Add proper type for children
+type AppLayoutProps = {
+  children: React.ReactNode;
+};
+
+export default function AppLayout({ children }: AppLayoutProps) {
+  return <View style={styles.container}>{children}</View>;
 }
 
 const styles = StyleSheet.create({
-  safe: {
-    flex: 1,
-    backgroundColor: "#f7f7f7",
-  },
   container: {
     flex: 1,
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingTop: 10,
+    backgroundColor: 'transparent',
   },
 });
+
+
